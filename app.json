@@ -1,0 +1,12 @@
+{
+  "name": "mapboxAndroidTest",
+  "displayName": "mapboxAndroidTest",
+  "expo": {
+    "name": "mapboxAndroidTest",
+    "slug": "mapboxAndroidTest",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
