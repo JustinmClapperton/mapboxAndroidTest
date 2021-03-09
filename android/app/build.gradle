@@ -78,7 +78,9 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false
+    entryFile: "index.js",
+    enableHermes: false,
+    bundleInDebug: true
 ]
 
 apply from: '../../node_modules/react-native-unimodules/gradle.groovy'
@@ -188,6 +190,9 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation "com.mapbox.navigation:ui:1.1.0"
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.5.0'
+    implementation "com.mapbox.navigation:core:1.4.0"
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }

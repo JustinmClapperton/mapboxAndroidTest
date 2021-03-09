@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
 
+import com.facebook.react.BuildConfig;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -36,13 +37,14 @@ public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
+      return true;
     }
 
     @Override
     protected List<ReactPackage> getPackages() {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
+      packages.add(new MapboxMapPackage());
       return packages;
     }
 
@@ -53,7 +55,7 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected @Nullable String getJSBundleFile() {
-      if (BuildConfig.DEBUG) {
+      if (true) {
         return super.getJSBundleFile();
       } else {
         return UpdatesController.getInstance().getLaunchAssetFile();
@@ -62,7 +64,7 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected @Nullable String getBundleAssetName() {
-      if (BuildConfig.DEBUG) {
+      if (true) {
         return super.getBundleAssetName();
       } else {
         return UpdatesController.getInstance().getBundleAssetName();
@@ -80,7 +82,7 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
 
-    if (!BuildConfig.DEBUG) {
+    if (false) {
       UpdatesController.initialize(this);
     }
 
@@ -96,7 +98,7 @@ public class MainApplication extends Application implements ReactApplication {
    */
   private static void initializeFlipper(
       Context context, ReactInstanceManager reactInstanceManager) {
-    if (BuildConfig.DEBUG) {
+    if (true) {
       try {
         /*
          We use reflection here to pick up the class that initializes Flipper,

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import com.mapbox.mapboxsdk.Mapbox;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 
 import expo.modules.splashscreen.singletons.SplashScreen;
@@ -17,6 +18,7 @@ public class MainActivity extends ReactActivity {
     // SplashScreen.show(...) has to be called after super.onCreate(...)
     // Below line is handled by '@expo/configure-splash-screen' command and it's discouraged to modify it manually
     SplashScreen.show(this, SplashScreenImageResizeMode.CONTAIN, ReactRootView.class, false);
+    Mapbox.getInstance(getApplicationContext(), getString(R.string.mapbox_access_token));
   }
 
 
